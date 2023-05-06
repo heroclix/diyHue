@@ -199,9 +199,9 @@ def on_autodiscovery_light(msg):
 
             # Device capabilities
             keys = data.keys()
-            light_color = "color_mode" in keys and data["color_mode"] == True
+            light_color = "color_mode" in keys and data["color_mode"] == True and "xy" in data["supported_color_modes"]
             light_brightness = "brightness" in keys and data["brightness"] == True
-            light_ct = "color_temp" in keys and data["color_temp"] == True
+            light_ct = "color_mode" in keys and data["color_mode"] == True and "color_temp" in data["supported_color_modes"]
 
             modelid = None
             if light_color and light_ct:
